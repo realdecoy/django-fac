@@ -1,5 +1,5 @@
 import requests
-from entities import TransactionDetail
+from entities import TransactionDetail, CardDetail
 from .constants import (
     FAC_V2_BASE_URL,
     FAC_V2_HEADERS_JSON,
@@ -16,7 +16,7 @@ from .utils import (
 )
 
 
-def authorize(transaction_detail, card_detail, redirect_url):
+def authorize(transaction_detail: TransactionDetail, card_detail: CardDetail, redirect_url: str):
     endpoint = "spi/Auth"
     url = FAC_V2_BASE_URL + endpoint
     request_body = generate_auth_request_body(transaction_detail, card_detail, redirect_url)
@@ -25,7 +25,7 @@ def authorize(transaction_detail, card_detail, redirect_url):
 
     return response
 
-def sale(transaction_detail, card_detail, redirect_url):
+def sale(transaction_detail: TransactionDetail, card_detail: CardDetail, redirect_url: str):
     endpoint = "spi/Sale"
     url = FAC_V2_BASE_URL + endpoint
     request_body = generate_sale_request_body(transaction_detail, card_detail, redirect_url)

@@ -1,15 +1,15 @@
 
-# First Atlantic Commerce Payment Integration
+# Django FAC 
 
-
-`django-fac `is a Django app to conduct that is used to integrate with First Atlantic Commerce payment gateway
+`django-fac` is a python package that helps to simplify the integration with First Atlantic Commerce payment gateway.
 
 Detailed documentation is in the "docs" directory.
 
-## Quick start
 ---
 
-1. First we need to install the `django-fac`.
+## Quick start
+
+1. First we need to install the `django-fac`:
 ```bash
 pip install django-fac
 ```
@@ -23,9 +23,10 @@ INSTALLED_APPS = [
 ]
 ```
 
+&nbsp;
+&nbsp;
 
 ## Simple Usage
----
 
 This is an example of how the authorization process works
 ```python

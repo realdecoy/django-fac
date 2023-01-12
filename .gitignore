@@ -1,4 +1,13 @@
+# Development
 **/__pycache__/**
 db.sqlite3
+venv/
+
+# Deployment
 dist/
+*.egg-info/
+
 .DS_Store
+
+
+# davduck2023_

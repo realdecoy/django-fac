@@ -1,4 +1,4 @@
-"""django_fac URL Configuration
+"""django_fac_integration URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
+    path('fac/', include('django-fac.urls', namespace='index')),
     path('admin/', admin.site.urls),
 ]

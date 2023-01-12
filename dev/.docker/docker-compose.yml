@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  portal:
+    container_name: django-fac
+    build:
+      context: ../
+      dockerfile: .docker/Dockerfile
+    image: realdecoy/django-fac
+    volumes:
+      - ../:/app/
+    ports:
+      - "8000:8000"
+

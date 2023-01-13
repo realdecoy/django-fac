@@ -1,0 +1,92 @@
+{% extends "fac_example/base.template.html" %} {% block page_content %}
+
+<form id="billing-form" action="" method="post">
+  {% csrf_token %}    
+  <div class="input-control flex-1">
+    <label class="text-black" for="id_amount">Amount</label>
+    <input
+      id="id_amount"
+      type="text"
+      placeholder="0.00"
+      name="amount"
+      required
+      value="{{ form.amount.value|default:'' }}"
+      autocomplete="off"
+    />
+    <div class="text-danger card-number-error mt-1">
+      {{ form.amount.errors }}
+    </div>
+  </div>
+
+  <div class="input-control flex-1">
+    <label class="text-black" for="id_card_holder_name">Card Holder Name</label>
+    <input
+      id="id_card_holder_name"
+      type="text"
+      placeholder="eg. John Doe"
+      name="card_holder_name"
+      required
+      value="{{ form.card_holder_name.value|default:'' }}"
+      autocomplete="off"
+    />
+    <div class="text-danger card-number-error mt-1">
+      {{ form.card_holder_name.errors }}
+    </div>
+  </div>
+
+  <div class="input-control flex-1">
+    <label class="text-black" for="id_card_number">Card Number</label>
+    <input
+      id="id_card_number"
+      type="text"
+      placeholder="xxxx - xxxx - xxxx - xxxx"
+      name="card_number"
+      required
+      value="{{ form.card_number.value|default:'' }}"
+      autocomplete="off"
+    />
+    <div class="text-danger card-number-error mt-1">
+      {{ form.card_number.errors }}
+    </div>
+  </div>
+
+  <div class="flex exp-cvv">
+    <div class="input-control flex-1 mr-5">
+      <label class="text-black" for="card_cvv">CVV</label>
+      <input
+        id="card_cvv"
+        type="text"
+        placeholder="Enter CVV"
+        name="card_cvv"
+        required
+        value="{{ form.card_cvv.value|default:'' }}"
+        autocomplete="off"
+      />
+      <div class="text-danger card-cvv-error mt-1">
+        {{ form.card_cvv.errors }}
+      </div>
+    </div>
+
+    <div class="input-control flex-1">
+      <label class="text-black" for="id_exp_date"
+        >Expiration Date (MM/YY)</label
+      >
+      <input
+        id="id_exp_date"
+        type="text"
+        placeholder="Enter Expiry Date"
+        name="exp_date"
+        required
+        value="{{ form.exp_date.value|default:'' }}"
+        autocomplete="off"
+      />
+      <div class="text-danger card-exp-date-error mt-1">
+        {{ form.exp_date.errors }}
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn primary pay-now-btn">Pay Now</button>
+
+</form>
+{% endblock page_content %}

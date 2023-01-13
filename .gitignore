@@ -8,6 +8,4 @@ dist/
 *.egg-info/
 
 .DS_Store
-
-
-# davduck2023_
+.env

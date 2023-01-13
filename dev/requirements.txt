@@ -1,1 +1,5 @@
+python-decouple==3.3
+
+# Installing the local package so we can edit it during development without 
+# requiring a rebuild. Read More https://realpython.com/installable-django-app/#defining-your-installable-package-with-setupcfg
 -e ../

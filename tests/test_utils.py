@@ -1,12 +1,6 @@
 from django.test import TestCase
-from .core.utils import format_expiry_date
+from ..django_fac.core.utils import format_expiry_date
 # Create your tests here.
-
-class FacUnitTest(TestCase):
-    def test_health(self):
-        # self.assertEqual(expected, total)
-        pass
-
 
 class UtilsTest(TestCase):
 

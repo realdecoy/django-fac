@@ -35,17 +35,17 @@ Request body generations
 
 def generate_auth_request_body(transaction_detail, card_detail, redirect_url):
     return {
-        "TransactionIdentifier": transaction_detail.order_number,
+        "TransactionIdentifier": transaction_detail.order_id,
         "TotalAmount": transaction_detail.amount,
         "CurrencyCode": FAC_DEFAULT_CURRENCY,
         "ThreeDSecure": True,
         "Source": {
             "CardPan": card_detail.card_number,
             "CardCvv": card_detail.cvv2,
-            "CardExpiration": card_detail.exp_date,
+            "CardExpiration": card_detail.formatted_exp_date,
             "CardholderName": card_detail.cardholder_name
         },
-        "OrderIdentifier": transaction_detail.order_number,
+        "OrderIdentifier": transaction_detail.order_id,
         "AddressMatch": False,
         "ExtendedData": {
             "ThreeDSecure": {
@@ -63,17 +63,17 @@ def generate_auth_request_body(transaction_detail, card_detail, redirect_url):
 
 def generate_sale_request_body(transaction_detail, card_detail, redirect_url):
     return {
-        "TransactionIdentifier": transaction_detail.order_number,
+        "TransactionIdentifier": transaction_detail.order_id,
         "TotalAmount": transaction_detail.amount,
         "CurrencyCode": FAC_DEFAULT_CURRENCY,
         "ThreeDSecure": True,
         "Source": {
             "CardPan": card_detail.card_number,
             "CardCvv": card_detail.cvv2,
-            "CardExpiration": card_detail.exp_date,
+            "CardExpiration": card_detail.formatted_exp_date,
             "CardholderName": card_detail.cardholder_name
         },
-        "OrderIdentifier": transaction_detail.order_number,
+        "OrderIdentifier": transaction_detail.order_id,
         "AddressMatch": False,
         "ExtendedData": {
             "ThreeDSecure": {
@@ -96,14 +96,14 @@ def generate_payment_request_body(spiToken):
 def generate_capture_request_body(transaction_detail):
     return {
         "TotalAmount": transaction_detail.amount,
-        "TransactionIdentifier": transaction_detail.order_number
+        "TransactionIdentifier": transaction_detail.order_id
     }
 
 
 def generate_refund_request_body(transaction_detail):
     return {
         "Refund": True,
-        "TransactionIdentifier": transaction_detail.order_number,
+        "TransactionIdentifier": transaction_detail.order_id,
         "TotalAmount": transaction_detail.amount,
         "CurrencyCode": FAC_DEFAULT_CURRENCY,
         "Source": {
@@ -121,10 +121,10 @@ def generate_refund_request_body(transaction_detail):
     }
 
 
-def generate_void_request_body(order_number):
+def generate_void_request_body(order_id, auto_reversal=False, terminal_code="", terminal_serial_number=""):
     return {
-        "TransactionIdentifier": order_number,
-        "TerminalCode": "",
-        "TerminalSerialNumber": "",
-        "AutoReversal": False
+        "TransactionIdentifier": order_id,
+        "TerminalCode": terminal_code,
+        "TerminalSerialNumber": terminal_serial_number,
+        "AutoReversal": auto_reversal
     }

@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <meta name="title" content="Django FAC Example {% block title-meta %}{% endblock title-meta %}">
+
+  <title>Django FAC Example {% block title %}{% endblock title %}</title>
+
+  {% block styles %}
+  {% endblock styles %}
+</head>
+
+<body>
+
+  <div class="main-content">
+    <div class="content-area">
+        {% block page_content %}
+        {% endblock page_content %}
+    </div>
+
+    {% block scripts %}
+    {% endblock scripts %}
+</body>
+
+</html>

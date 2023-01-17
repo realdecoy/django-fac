@@ -102,5 +102,5 @@ If you are interested in contributing to the project then the following instruct
 
 ## API Reference
 
- - [Payment](docs/api-guide/payment) - Read more about how the Payments API can be used.
- - [Entities](docs/api-guide/entities) - Read more about how the entities can be used.
+ - [Payment](docs/api-guide/payment.md) - Read more about how the Payments API can be used.
+ - [Entities](docs/api-guide/entities.md) - Read more about how the entities can be used.

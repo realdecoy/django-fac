@@ -2,8 +2,8 @@
 
 <form id="billing-form" action="" method="post">
   {% csrf_token %}    
-  <div class="input-control flex-1">
-    <label class="text-black" for="id_amount">Amount</label>
+  <div>
+    <label for="id_amount">Amount</label>
     <input
       id="id_amount"
       type="text"
@@ -13,13 +13,15 @@
       value="{{ form.amount.value|default:'' }}"
       autocomplete="off"
     />
-    <div class="text-danger card-number-error mt-1">
+    <div>
       {{ form.amount.errors }}
     </div>
   </div>
+  <hr>
 
-  <div class="input-control flex-1">
-    <label class="text-black" for="id_card_holder_name">Card Holder Name</label>
+
+  <div>
+    <label for="id_card_holder_name">Card Holder Name</label>
     <input
       id="id_card_holder_name"
       type="text"
@@ -29,13 +31,13 @@
       value="{{ form.card_holder_name.value|default:'' }}"
       autocomplete="off"
     />
-    <div class="text-danger card-number-error mt-1">
+    <div>
       {{ form.card_holder_name.errors }}
     </div>
   </div>
 
-  <div class="input-control flex-1">
-    <label class="text-black" for="id_card_number">Card Number</label>
+  <div>
+    <label for="id_card_number">Card Number</label>
     <input
       id="id_card_number"
       type="text"
@@ -45,14 +47,14 @@
       value="{{ form.card_number.value|default:'' }}"
       autocomplete="off"
     />
-    <div class="text-danger card-number-error mt-1">
+    <div>
       {{ form.card_number.errors }}
     </div>
   </div>
 
-  <div class="flex exp-cvv">
-    <div class="input-control flex-1 mr-5">
-      <label class="text-black" for="card_cvv">CVV</label>
+  <div class="grid">
+    <div class="">
+      <label for="card_cvv">CVV</label>
       <input
         id="card_cvv"
         type="text"
@@ -62,13 +64,13 @@
         value="{{ form.card_cvv.value|default:'' }}"
         autocomplete="off"
       />
-      <div class="text-danger card-cvv-error mt-1">
+      <div>
         {{ form.card_cvv.errors }}
       </div>
     </div>
 
-    <div class="input-control flex-1">
-      <label class="text-black" for="id_exp_date"
+    <div class="">
+      <label for="id_exp_date"
         >Expiration Date (MM/YY)</label
       >
       <input
@@ -80,7 +82,7 @@
         value="{{ form.exp_date.value|default:'' }}"
         autocomplete="off"
       />
-      <div class="text-danger card-exp-date-error mt-1">
+      <div>
         {{ form.exp_date.errors }}
       </div>
     </div>

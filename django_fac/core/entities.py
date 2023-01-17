@@ -42,7 +42,9 @@ class TransactionDetail(object):
 
         return error
 
-
+"""
+===========
+"""
 
 class AuthorizeResponse(object):
     def __init__(
@@ -74,7 +76,6 @@ class AuthorizeResponse(object):
 
     def __str__(self) -> str:
         return f"AuthorizeResponse -> {self.order_identifier} :: {self.approved}"
-
 
 
 class PaymentResponse(object):
@@ -113,9 +114,6 @@ class PaymentResponse(object):
        )
 
 
-
-
-
 class CaptureResponse(object):
     def __init__(
         self, original_trxn_identifier: str, transaction_type: int, approved: bool, transaction_identifier: str, iso_response_code: str, 
@@ -136,7 +134,6 @@ class CaptureResponse(object):
 
     @classmethod
     def from_response(cls, fac_response, status_code):
-        print(f"CaptureResponse: {fac_response}")
         return cls(
             fac_response["OriginalTrxnIdentifier"],
             fac_response["TransactionType"],
@@ -151,11 +148,17 @@ class CaptureResponse(object):
             status_code
        )
 
+
+"""
+===========
+"""
+
 class AuthorizationRedirectError(object):
     def __init__(self, code: str, message: str):
         self.code = code
         self.message = message
-        
+
+
 class ThreeDSecure(object):
     def __init__(
         self, eci, cavv, xid, authentication_status, protocol_version, fingerprint_indicator, ds_trans_id, response_code, card_holder_info):
@@ -168,6 +171,7 @@ class ThreeDSecure(object):
         self.ds_trans_id = ds_trans_id,
         self.response_code = response_code,
         self.card_holder_info = card_holder_info,
+
 
 class RiskManagement(object):
     def __init__(self, three_d_secure: ThreeDSecure):
@@ -233,11 +237,3 @@ class FACAuthorizationRedirectResponse(object):
     @staticmethod
     def map_response_rrrors(raw_response):
         return AuthorizationRedirectError(raw_response["Code"], raw_response["Message"])
-
-
-    # def get_transaction(self, order_id) -> AuthorizationRedirectResponse:
-    #     for resposne in self.responses:
-    #         print(resposne)
-    #         if resposne.order_identifier == order_id:
-    #             return resposne
-    #     return None

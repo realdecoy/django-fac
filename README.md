@@ -36,7 +36,7 @@ pip install django-fac
 
 ## Configurations
 
-2. Add "django_fac" to your INSTALLED_APPS setting like this:
+2. Add `django_fac` to your INSTALLED_APPS setting like this:
 
 ```python
 INSTALLED_APPS = [
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-3. Setting up the package config variables. It is recommemded to store the values in environment variables.
+3. Setting up the package config variables. It is recommemded to store the values in environment variables. Add the following variables to your `settings.py` file
 
 ```python
 FAC_ID = "..."

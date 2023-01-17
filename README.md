@@ -8,8 +8,6 @@ PyPi Package: https://pypi.org/project/django-fac/
 
 Detailed documentation is in the "docs" directory.
 
-&nbsp;
-
 Table of contents
 =================
 <!--ts-->
@@ -104,5 +102,5 @@ If you are interested in contributing to the project then the following instruct
 
 ## API Reference
 
- - [Payment](/docs/api-guide/payment) - Read more about how the Payments API can be used.
- - [Entities](/docs/api-guide/entities) - Read more about how the entities can be used.
+ - [Payment](docs/api-guide/payment) - Read more about how the Payments API can be used.
+ - [Entities](docs/api-guide/entities) - Read more about how the entities can be used.

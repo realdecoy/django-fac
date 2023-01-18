@@ -78,7 +78,7 @@ card_detail = CardDetail(
     cardholder_name="John Doe"
 )
 
-# This URL will recieve the status of the transaction after authorization
+# This URL will receive the status of the transaction after authorization
 redirect_url = "https://your-domain.com/webhook/payment"
 
 response = payment.authorize(transaction_detail, card_detail, redirect_url)
